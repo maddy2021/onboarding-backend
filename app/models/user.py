@@ -37,7 +37,7 @@ class User(Base):
     modified_by = Column(Integer, nullable=True)
     projects = relationship("Projects", secondary="user_projects", back_populates="user")
     roles = relationship("Roles", secondary="user_roles", back_populates="user")
-    designation_id =  Column(Integer, ForeignKey('designations.id'),nullable= True)
+    designation_id =  Column(Integer, ForeignKey('designations.id',use_alter=True),nullable= True)
 
     def toJson(self):
         return {
