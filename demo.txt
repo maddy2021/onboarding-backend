@@ -1,0 +1,85 @@
+# @(#)def.kprofile
+# default profile for ksh
+# Searching $HOME/bin and current directory last is usually a BIG time saver.
+# (Most users don't have commands that match system command names.)
+# if you don't have a bin directory in $HOME you can delete it from PATH.
+#------------------------------------------------------------------------------
+# Set TERM value
+  [ -f /.ttytype ] && export DEFTERM="`cat /.ttytype`"
+  expr "`tty`" : '/dev/hft/.*' >/dev/null && export TERM=hft
+  expr "`tty`" : '/dev/tty.*' >/dev/null && {
+     export TERM=${DEFTERM:-ibm3151}
+     stty clocal
+     stty ignbrk
+  }
+  expr "`tty`" : '/dev/vty.*' >/dev/null && {
+     export TERM=${DEFTERM:-vt320}
+     stty clocal
+     stty ignbrk
+  }
+  stty erase ^?
+
+
+#------------------------------------------------------------------------------
+  export HOME=/ HOMEPATH=/
+  cd $HOME
+
+  . /etc/environment
+  PATH=.:$PATH:/usr/lpp/htx/etc/scripts:/test/tools
+
+# Routine to remove duplicate paths while maintaining existing path order
+  NewPATH=$(echo $PATH | /bin/tr ":" "\n" | /bin/awk '!x[$0]++ {printf $1":"}' |                                                                              /bin/sed "s/::*$//")
+  [ "$NewPATH" ] && export PATH=$NewPATH
+  unset NewPATH PATHS
+
+
+#------------------------------------------------------------------------------
+  export DISPLAY=unix:0.0
+  export RNINIT="-e -m -S -/ -h +hfrom +hdate +hkeywords +hsummary +horg"
+  export START=$HOME/.kshrc
+  export ENV='${START[(_$-=1)+(_=0)-(_$-!=_${-%%*i*})]}'
+  export EDITOR=/usr/bin/vi
+  export FCEDIT=/usr/bin/vi
+  export HOSTNAME=`/bin/hostname -s`
+  export HOST=$HOSTNAME
+  export LANG=en_US
+  export LC_FASTMSG=true
+  export USER=root
+  export EXTENDED_HISTORY=ON
+  export PATH=$PATH:/usr/es/sbin/cluster/conversion
+  export HISTFILE=$HOME/.kshhist
+  export HISTSIZE=5000
+  set -h
+  set -o vi
+  resize
+
+#------------------------------------------------------------------------------
+# Define (or redefine) NLSPATH
+  export NLSPATH=/usr/lib/nls/msg/%L/%N:/usr/lib/nls/msg/%L/%N.cat
+
+
+#------------------------------------------------------------------------------
+# use the 'id' command instead of who because it tells the effective uid...
+  tmp="`id`"
+  tmpl=${tmp#*\(}
+  export ID=${tmpl%%\)*}
+  unset tmp tmpl
+
+
+#------------------------------------------------------------------------------
+export PS1='
+($?) $LOGIN @ $HOST: $PWD
+# '
+
+
+#------------------------------------------------------------------------------
+  [ -f /.alias ] && . /.alias
+
+
+#------------------------------------------------------------------------------
+# Check the mail every # seconds
+  export MAILCHECK=3600
+  [ -s "$MAIL" ] && echo "$MAILMSG"
+
+
+export PATH=.:/usr/bin:/etc:/usr/sbin:/usr/ucb:/usr/bin/X11:/sbin:/usr/java7_64/                                                                             jre/bin:/usr/java7_64/bin:/usr/lpp/htx/etc/scripts:/test/tools:/usr/es/sbin/clus                                                                             ter/utilities/

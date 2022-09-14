@@ -1,0 +1,893 @@
+{
+  "templates": {
+    "pdesk": {
+      "backtest": {
+        "y_variable": [
+          {
+            "label": "3-CPO(BMD)",
+            "value": "3_cpo_bmd_prices_USD_per_MT",
+            "commodity": [
+              "3-CPO-BMD"
+            ]
+          },
+          {
+            "label": "3-Soyoil(CBOT)",
+            "value": "3_soyoil_cbot_prices_USD_per_MT",
+            "commodity": [
+              "3-Soyoil-CBOT"
+            ]
+          },
+          {
+            "label": "India-MCX-Spot",
+            "value": "mcx_spot_price",
+            "commodity": [
+              "MCX-Spot"
+            ]
+          },
+          {
+            "label": "Malaysia-CPO-Spot",
+            "value": "bmd_spot_price",
+            "commodity": [
+              "CPO-Malaysia-Spot"
+            ]
+          },
+          {
+            "label": "India-NCDEX-Soyoil-Spot",
+            "value": "soyoil_ncdex_spot_price",
+            "commodity": [
+              "Soyoil-NCDEX-Spot"
+            ]
+          },
+          {
+            "label": "Basis-MalaysiaCPOSpot-3CPO(BMD)",
+            "value": "basis_spot_future_bmd",
+            "commodity": [
+              "Basis-CPO-Malaysia-Spot-3-CPO-BMD"
+            ]
+          },
+          {
+            "label": "Basis-IndiaCPOSpot-3CPO(BMD)",
+            "value": "basis_spot_future_mcx",
+            "commodity": [
+              "Basis-CPO-India-Spot-3-CPO-BMD"
+            ]
+          },
+          {
+            "label": "Basis-Argentina_Soyoil-3Soyoil(CBOT)",
+            "value": "basis_spot(argentina)_future(3SoyoilCbot)",
+            "commodity": [
+              "Basis-Soyoil-Argentina-3-Soyoil-CBOT"
+            ]
+          },
+          {
+            "label": "Basis-Argentina_Soyoil-2Soyoil(CBOT)",
+            "value": "basis_spot(argentina)_future(2SoyoilCbot)",
+            "commodity": [
+              "Basis-Soyoil-Argentina-2-Soyoil-CBOT"
+            ]
+          }
+        ],
+        "lookahead_admin": [
+          7,
+          15,
+          30,
+          45,
+          60,
+          90
+        ],
+        "model_type": "linear_regression",
+        "percentage_list": [
+          0,
+          3,
+          5
+        ]
+      },
+      "instrument_features": {
+        "feature_list": {
+          "y_variable": [
+            {
+              "label": "3-CPO(BMD)",
+              "value": "3_cpo_bmd_prices_USD_per_MT",
+              "commodity": [
+                "3-CPO-BMD"
+              ]
+            },
+            {
+              "label": "3-Soyoil(CBOT)",
+              "value": "3_soyoil_cbot_prices_USD_per_MT",
+              "commodity": [
+                "3-Soyoil-CBOT"
+              ]
+            },
+            {
+              "label": "India-MCX-Spot",
+              "value": "mcx_spot_price",
+              "commodity": [
+                "MCX-Spot"
+              ]
+            },
+            {
+              "label": "Malaysia-CPO-Spot",
+              "value": "bmd_spot_price",
+              "commodity": [
+                "CPO-Malaysia-Spot"
+              ]
+            },
+            {
+              "label": "India-NCDEX-Soyoil-Spot",
+              "value": "soyoil_ncdex_spot_price",
+              "commodity": [
+                "Soyoil-NCDEX-Spot"
+              ]
+            },
+            {
+              "label": "Basis-MalaysiaCPOSpot-3CPO(BMD)",
+              "value": "basis_spot_future_bmd",
+              "commodity": [
+                "Basis-CPO-Malaysia-Spot-3-CPO-BMD"
+              ]
+            },
+            {
+              "label": "Basis-IndiaCPOSpot-3CPO(BMD)",
+              "value": "basis_spot_future_mcx",
+              "commodity": [
+                "Basis-CPO-India-Spot-3-CPO-BMD"
+              ]
+            }
+          ],
+          "soyoil_active_month": [
+            2,
+            3
+          ]
+        },
+        "feature_importance": {
+          "y_variable": [
+            {
+              "label": "3-CPO(BMD)",
+              "value": "3_cpo_bmd_prices_USD_per_MT",
+              "commodity": [
+                "3-CPO-BMD"
+              ]
+            },
+            {
+              "label": "3-Soyoil(CBOT)",
+              "value": "3_soyoil_cbot_prices_USD_per_MT",
+              "commodity": [
+                "3-Soyoil-CBOT"
+              ]
+            },
+            {
+              "label": "India-MCX-Spot",
+              "value": "mcx_spot_price",
+              "commodity": [
+                "MCX-Spot"
+              ]
+            },
+            {
+              "label": "Malaysia-CPO-Spot",
+              "value": "bmd_spot_price",
+              "commodity": [
+                "CPO-Malaysia-Spot"
+              ]
+            },
+            {
+              "label": "India-NCDEX-Soyoil-Spot",
+              "value": "soyoil_ncdex_spot_price",
+              "commodity": [
+                "Soyoil-NCDEX-Spot"
+              ]
+            },
+            {
+              "label": "Basis-MalaysiaCPOSpot-3CPO(BMD)",
+              "value": "basis_spot_future_bmd",
+              "commodity": [
+                "Basis-CPO-Malaysia-Spot-3-CPO-BMD"
+              ]
+            },
+            {
+              "label": "Basis-IndiaCPOSpot-3CPO(BMD)",
+              "value": "basis_spot_future_mcx",
+              "commodity": [
+                "Basis-CPO-India-Spot-3-CPO-BMD"
+              ]
+            },
+            {
+              "label": "Basis-Argentina_Soyoil-3Soyoil(CBOT)",
+              "value": "basis_spot(argentina)_future(3SoyoilCbot)",
+              "commodity": [
+                "Basis-Soyoil-Argentina-3-Soyoil-CBOT"
+              ]
+            },
+            {
+              "label": "Basis-Argentina_Soyoil-2Soyoil(CBOT)",
+              "value": "basis_spot(argentina)_future(2SoyoilCbot)",
+              "commodity": [
+                "Basis-Soyoil-Argentina-2-Soyoil-CBOT"
+              ]
+            }
+          ],
+          "lookahead": [
+            7,
+            15,
+            30
+          ]
+        },
+        "model_type": "linear_regression"
+      },
+      "explainability": {
+        "y_variable": [
+          {
+            "label": "3-CPO(BMD)",
+            "value": "3_cpo_bmd_prices_USD_per_MT",
+            "commodity": [
+              "3-CPO-BMD"
+            ]
+          },
+          {
+            "label": "Malaysia-CPO-Spot",
+            "value": "bmd_spot_price",
+            "commodity": [
+              "CPO-Malaysia-Spot"
+            ]
+          },
+          {
+            "label": "Basis-MalaysiaCPOSpot-3CPO(BMD)",
+            "value": "basis_spot_future_bmd",
+            "commodity": [
+              "Basis-CPO-Malaysia-Spot-3-CPO-BMD"
+            ]
+          },
+          {
+            "label": "Basis-IndiaCPOSpot-3CPO(BMD)",
+            "value": "basis_spot_future_mcx",
+            "commodity": [
+              "Basis-CPO-India-Spot-3-CPO-BMD"
+            ]
+          }
+        ],
+        "lookahead": [
+          7,
+          15,
+          30
+        ],
+        "model_type": "linear_regression"
+      },
+      "inference": {
+        "y_variable": [
+          {
+            "label": "3-CPO(BMD)",
+            "value": "3_cpo_bmd_prices_USD_per_MT",
+            "commodity": [
+              "3-CPO-BMD"
+            ]
+          },
+          {
+            "label": "3-Soyoil(CBOT)",
+            "value": "3_soyoil_cbot_prices_USD_per_MT",
+            "commodity": [
+              "3-Soyoil-CBOT"
+            ]
+          },
+          {
+            "label": "India-MCX-Spot",
+            "value": "mcx_spot_price",
+            "commodity": [
+              "MCX-Spot"
+            ]
+          },
+          {
+            "label": "Malaysia-CPO-Spot",
+            "value": "bmd_spot_price",
+            "commodity": [
+              "CPO-Malaysia-Spot"
+            ]
+          },
+          {
+            "label": "India-NCDEX-Soyoil-Spot",
+            "value": "soyoil_ncdex_spot_price",
+            "commodity": [
+              "Soyoil-NCDEX-Spot"
+            ]
+          },
+          {
+            "label": "Basis-MalaysiaCPOSpot-3CPO(BMD)",
+            "value": "basis_spot_future_bmd",
+            "commodity": [
+              "Basis-CPO-Malaysia-Spot-3-CPO-BMD"
+            ]
+          },
+          {
+            "label": "Basis-IndiaCPOSpot-3CPO(BMD)",
+            "value": "basis_spot_future_mcx",
+            "commodity": [
+              "Basis-CPO-India-Spot-3-CPO-BMD"
+            ]
+          },
+          {
+            "label": "Basis-Argentina_Soyoil-3Soyoil(CBOT)",
+            "value": "basis_spot(argentina)_future(3SoyoilCbot)",
+            "commodity": [
+              "Basis-Soyoil-Argentina-3-Soyoil-CBOT"
+            ]
+          },
+          {
+            "label": "Basis-Argentina_Soyoil-2Soyoil(CBOT)",
+            "value": "basis_spot(argentina)_future(2SoyoilCbot)",
+            "commodity": [
+              "Basis-Soyoil-Argentina-2-Soyoil-CBOT"
+            ]
+          },
+          {
+            "label": "2-Soyoil(CBOT)",
+            "value": "2_soyoil_cbot_prices_USD_per_MT",
+            "commodity": [
+              "2-Soyoil-CBOT"
+            ]
+          }
+        ],
+        "currency": [
+          "$/MT",
+          "MYR/MT"
+        ],
+        "model_type": "linear_regression"
+      },
+      "historical_volatility": {
+        "y_variable": [
+          {
+            "label": "BMD-Spot",
+            "value": "bmd_spot_price_prices_USD_per_MT",
+            "commodity": [
+              "BMD-Spot"
+            ]
+          },
+          {
+            "label": "3-CPO-BMD",
+            "value": "3_cpo_bmd_prices_USD_per_MT",
+            "commodity": [
+              "3-CPO-BMD"
+            ]
+          },
+          {
+            "label": "MCX-Spot",
+            "value": "mcx_spot_price_prices_USD_per_MT",
+            "commodity": [
+              "MCX-Spot"
+            ]
+          },
+          {
+            "label": "2-CPO-MCX",
+            "value": "2_cpo_mcx_prices_USD_per_MT",
+            "commodity": [
+              "2-CPO-MCX"
+            ]
+          },
+          {
+            "label": "Soybean-NCDEX-Spot",
+            "value": "soybean_ncdex_spot_price_prices_USD_per_MT",
+            "commodity": [
+              "Soybean-NCDEX-Spot"
+            ]
+          },
+          {
+            "label": "1-Soybean-Ncdex",
+            "value": "1_soybean_ncdex_prices_USD_per_MT",
+            "commodity": [
+              "1-Soybean-NCDEX"
+            ]
+          },
+          {
+            "label": "2-Soybean-Ncdex",
+            "value": "2_soybean_ncdex_prices_USD_per_MT",
+            "commodity": [
+              "2-Soybean-NCDEX"
+            ]
+          },
+          {
+            "label": "Soyoil-NCDEX-Spot",
+            "value": "soyoil_ncdex_spot_price_prices_USD_per_MT",
+            "commodity": [
+              "Soyoil-NCDEX-Spot"
+            ]
+          },
+          {
+            "label": "2-Soyoil-NCDEX",
+            "value": "2_soyoil_ncdex_prices_USD_per_MT",
+            "commodity": [
+              "2-Soyoil-NCDEX"
+            ]
+          },
+          {
+            "label": "RMSeed-Spot",
+            "value": "rmseed_spot_price_prices_USD_per_MT",
+            "commodity": [
+              "RMSeed-Spot"
+            ]
+          },
+          {
+            "label": "1-RMSeed-NCDEX",
+            "value": "1_rmseed_ncdex_prices_USD_per_MT",
+            "commodity": [
+              "1-RMSeed-NCDEX"
+            ]
+          }
+        ],
+        "operations": [
+          "MEAN",
+          "MEDIAN",
+          "SKEW",
+          "KURTOSIS"
+        ],
+        "model_type": "linear_regression"
+      },
+      "basis_risk": {
+        "y_variable": [
+          {
+            "label": "Correlation between 3-CPO(BMD) and Spot-CPO(BMD)",
+            "value": "Correlation between 3-CPO(BMD) and Spot-CPO(BMD)",
+            "commodity": [
+              "3-CPO-BMD-CPO-BMD-Spot"
+            ]
+          },
+          {
+            "label": "Correlation between 2-CPO(MCX) and Spot-CPO(MCX)",
+            "value": "Correlation between 2-CPO(MCX) and Spot-CPO(MCX)",
+            "commodity": [
+              "2-CPO-MCX-CPO-MCX-Spot"
+            ]
+          },
+          {
+            "label": "Correlation between 3-CPO(BMD) and Spot-CPO(MCX)",
+            "value": "Correlation between 3-CPO(BMD) and Spot-CPO(MCX)",
+            "commodity": [
+              "3-CPO-BMD-CPO-MCX-Spot"
+            ]
+          },
+          {
+            "label": "Correlation between 3-Soyoil(CBOT) and Spot-Soyoil(NCDEX)",
+            "value": "Correlation between 3-Soyoil(CBOT) and Spot-Soyoil(NCDEX)",
+            "commodity": [
+              "3-Soyoil-CBOT-Soyoil-NCDEX-Spot"
+            ]
+          },
+          {
+            "label": "Correlation between 2-Soyoil(NCDEX) and Spot-Soyoil(NCDEX)",
+            "value": "Correlation between 2-Soyoil(NCDEX) and Spot-Soyoil(NCDEX)",
+            "commodity": [
+              "2-Soyoil-NCDEX-Soyoil-NCDEX-Spot"
+            ]
+          },
+          {
+            "label": "Correlation between 2-Soybean(NCDEX) and Spot-Soybean(NCDEX)",
+            "value": "Correlation between 2-Soybean(NCDEX) and Spot-Soybean(NCDEX)",
+            "commodity": [
+              "2-Soybean-NCDEX-Soybean-NCDEX-Spot"
+            ]
+          },
+          {
+            "label": "Correlation between 3-Soybean(CBOT) and Spot-Soybean(NCDEX)",
+            "value": "Correlation between 3-Soybean(CBOT) and Spot-Soybean(NCDEX)",
+            "commodity": [
+              "3-Soybean-CBOT-Soybean-NCDEX-Spot"
+            ]
+          }
+        ],
+        "model_type": "linear_regression"
+      },
+      "public_posting": {
+        "y_variable": [
+          {
+            "label": "3-CPO(BMD)",
+            "value": "3_cpo_bmd_prices_USD_per_MT",
+            "code": "3-CPO(BMD)_Prediction($/MT)",
+            "commodity": [
+              "3-CPO-BMD"
+            ]
+          },
+          {
+            "label": "2/3-Soyoil(CBOT)",
+            "value": "2-3_soyoil_cbot_prices_USD_per_MT",
+            "code": "Soyoil(CBOT)_Prediction",
+            "commodity": [
+              "2/3-Soyoil-CBOT"
+            ]
+          },
+          {
+            "label": "India-MCX-Spot",
+            "value": "mcx_spot_price",
+            "code": "MCX_Prediction",
+            "commodity": [
+              "MCX-Spot"
+            ]
+          },
+          {
+            "label": "Malaysia-CPO-Spot",
+            "value": "bmd_spot_price",
+            "code": "BMD_Prediction",
+            "commodity": [
+              "CPO-Malaysia-Spot"
+            ]
+          },
+          {
+            "label": "India-NCDEX-Soyoil-Spot",
+            "value": "soyoil_ncdex_spot_price",
+            "code": "Soyoil(NCDEX)_Prediction",
+            "commodity": [
+              "Soyoil-NCDEX-Spot"
+            ]
+          },
+          {
+            "label": "Basis-MalaysiaCPOSpot-3CPO(BMD)",
+            "value": "basis_spot_future_bmd",
+            "code": "Basis_Malaysia_Spot_3CPO(BMD)_Prediction",
+            "commodity": [
+              "Basis-CPO-Malaysia-Spot-3-CPO-BMD"
+            ]
+          },
+          {
+            "label": "Basis-IndiaCPOSpot-3CPO(BMD)",
+            "value": "basis_spot_future_mcx",
+            "code": "Basis_India(MCX)_Spot_3CPO(BMD)_Prediction",
+            "commodity": [
+              "Basis-CPO-India-Spot-3-CPO-BMD"
+            ]
+          }
+        ],
+        "high_impact_cases": [
+          0,
+          3,
+          5,
+          10,
+          20,
+          30
+        ],
+        "months_mapping": {
+          "01": "January",
+          "02": "February",
+          "03": "March",
+          "04": "April",
+          "05": "May",
+          "06": "June",
+          "07": "July",
+          "08": "August",
+          "09": "September",
+          "10": "October",
+          "11": "November",
+          "12": "December"
+        },
+        "model_type": "linear_regression"
+      },
+      "what_if": {
+        "y_variable": [
+          {
+            "label": "3-CPO(BMD)",
+            "value": "3_cpo_bmd_prices_USD_per_MT",
+            "code": "3-CPO(BMD)_Prediction($/MT)",
+            "commodity": [
+              "3-CPO-BMD"
+            ]
+          },
+          {
+            "label": "India-MCX-Spot",
+            "value": "mcx_spot_price",
+            "code": "MCX_Prediction",
+            "commodity": [
+              "MCX-Spot"
+            ]
+          },
+          {
+            "label": "Malaysia-CPO-Spot",
+            "value": "bmd_spot_price",
+            "code": "BMD_Prediction",
+            "commodity": [
+              "CPO-Malaysia-Spot"
+            ]
+          },
+          {
+            "label": "Soyoil-India-NCDX",
+            "value": "soyoil_ncdex_spot_price",
+            "code": "Soyoil(NCDEX)_Prediction",
+            "commodity": [
+              "Soyoil-NCDEX-Spot"
+            ]
+          },
+          {
+            "label": "Argentina-Soyoil",
+            "value": "Argentina_Soyoil",
+            "code": "Argentina-Soyoil_Prediction",
+            "commodity": [
+              "Soyoil-Argentina"
+            ]
+          },
+          {
+            "label": "2-Soyoil-CBOT",
+            "value": "2_soyoil_cbot_prices_USD_per_MT",
+            "code": "Soyoil(CBOT)_Prediction",
+            "commodity": [
+              "2-Soyoil-CBOT"
+            ]
+          },
+          {
+            "label": "Basis-Soyoil-Argentina-2-Soyoil-CBOT",
+            "value": "basis_spot(argentina)_future(2SoyoilCbot)",
+            "code": "Basis-Argentina-Soyoil-2Soyoil(CBOT)_Prediction",
+            "commodity": [
+              "Basis-Soyoil-Argentina-2-Soyoil-CBOT"
+            ]
+          },
+          {
+            "label": "Basis-CPO-Malaysia-Spot-3-CPO-BMD",
+            "value": "basis_spot_future_bmd",
+            "code": "Basis_MalaysiaCPOSpot_3CPO(BMD)_Prediction",
+            "commodity": [
+              "Basis-CPO-Malaysia-Spot-3-CPO-BMD"
+            ]
+          },
+          {
+            "label": "Basis-CPO-India-Spot-3-CPO-BMD",
+            "value": "basis_spot_future_mcx",
+            "code": "Basis_IndiaCPOSpot_3CPO(BMD)_Prediction",
+            "commodity": [
+              "Basis-CPO-India-Spot-3-CPO-BMD"
+            ]
+          }
+        ],
+        "features": {
+          "mcx_spot_price": [
+            "malaysia_palmoil_stock_in_MT", "crude_oil_wti", "indonesia_palmoil_production_in_MT",
+            "usa_production_soyoil_in_MT", "usa_imports_soyoil_in_MT",
+            "usa_beginning_stock_soyoil_in_MT", "usa_soyoil_ending_stock_in_MT",
+            "total_palm_india_portstock","sp500_close_index", "Crude_Palm_Oil_Import_Duty_Value_Rupee_Per_MT",
+            "indonesia_cpo_domestic_consumption_in_MT", "cpo_export_allpalmoil_indonesia_in_MT"
+          ],
+          "bmd_spot_price": [
+            "crude_oil_wti", "Crude_Palm_Oil_Import_Duty_Value_Rupee_Per_MT", "malaysia_palmoil_stock_in_MT",
+            "usa_production_soyoil_in_MT", "malaysia_palmoil_production_in_MT", "cpo_export_allpalmoil_indonesia_in_MT",
+            "usa_beginning_stock_soyoil_in_MT", "usa_soyoil_ending_stock_in_MT"
+          ],
+          "3_cpo_bmd_prices_USD_per_MT": ["malaysia_palmoil_stock_in_MT",
+            "indonesia_cpo_domestic_consumption_in_MT",
+            "cpo_export_allpalmoil_indonesia_in_MT",
+            "indonesia_palmoil_production_in_MT", 
+            "usa_soyoil_methyl_ester_in_MT",
+            "usa_soyoil_exports_in_MT",
+            "usa_production_soyoil_in_MT",
+            "usa_imports_soyoil_in_MT",
+            "usa_beginning_stock_soyoil_in_MT",
+            "usa_soyoil_ending_stock_in_MT"            
+          ],
+
+          "soyoil_ncdex_spot_price": ["3_cpo_bmd_prices_USD_per_MT", "crude_oil_wti",
+            "usa_soyoil_exports_in_MT",
+           "usa_production_soyoil_in_MT",   "usa_imports_soyoil_in_MT",
+           "usa_beginning_stock_soyoil_in_MT",  "usa_soyoil_ending_stock_in_MT",
+           "soybean_oil_ending_stocks_current_month_estimate_wasde_MT",    "soybean_oil_ending_stocks_previous_month_estimate_wasde_MT",
+           "soybeans_ending_stocks_current_month_estimate_wasde_MT",   "soybeans_ending_stocks_previous_month_estimate_wasde_MT",
+            "malaysia_palmoil_stock_in_MT" ],
+
+            "Argentina_Soyoil": ["3_cpo_bmd_prices_USD_per_MT", "crude_oil_wti",
+              "usa_soyoil_exports_in_MT",
+             "usa_production_soyoil_in_MT",   "usa_imports_soyoil_in_MT",
+             "usa_beginning_stock_soyoil_in_MT",  "usa_soyoil_ending_stock_in_MT",
+             "soybean_oil_ending_stocks_current_month_estimate_wasde_MT",    "soybean_oil_ending_stocks_previous_month_estimate_wasde_MT",
+             "soybeans_ending_stocks_current_month_estimate_wasde_MT",   "soybeans_ending_stocks_previous_month_estimate_wasde_MT",
+              "malaysia_palmoil_stock_in_MT" ],
+
+              "2_soyoil_cbot_prices_USD_per_MT": ["soybean_oil_ending_stocks_previous_month_estimate_wasde_MT",
+                "soybeans_ending_stocks_current_month_estimate_wasde_MT",
+                "soybeans_ending_stocks_previous_month_estimate_wasde_MT", "Argentina_Soyoil_minus_Malaysia_CPO_Spot",
+                "Argentina_Soyoil", "sp500_close_index"],
+
+              "basis_spot(argentina)_future(2SoyoilCbot)": ["3_cpo_bmd_prices_USD_per_MT", "crude_oil_wti",
+                "usa_soyoil_exports_in_MT",
+               "usa_production_soyoil_in_MT",   "usa_imports_soyoil_in_MT",
+               "usa_beginning_stock_soyoil_in_MT",  "usa_soyoil_ending_stock_in_MT",
+               "soybean_oil_ending_stocks_current_month_estimate_wasde_MT",    "soybean_oil_ending_stocks_previous_month_estimate_wasde_MT",
+               "soybeans_ending_stocks_current_month_estimate_wasde_MT",   "soybeans_ending_stocks_previous_month_estimate_wasde_MT",
+                "malaysia_palmoil_stock_in_MT" ],
+
+              "basis_spot_future_bmd": ["3_cpo_bmd_prices_USD_per_MT", "usa_production_soyoil_in_MT", "usa_soyoil_exports_in_MT", "2_po_dce_prices_USD_per_MT",
+                "third_month_future_volume_bmd_in_MT", "USD_MYR_Price", "crude_oil_wti",
+                "Crude_Palm_Oil_Import_Duty_Value_Rupee_Per_MT", "mcx_spot_price"],
+
+              "basis_spot_future_mcx": ["3_cpo_bmd_prices_USD_per_MT", "usa_production_soyoil_in_MT", "usa_soyoil_exports_in_MT", "2_po_dce_prices_USD_per_MT",
+                "third_month_future_volume_bmd_in_MT", "USD_MYR_Price", "crude_oil_wti",
+                "Crude_Palm_Oil_Import_Duty_Value_Rupee_Per_MT", "mcx_spot_price"]
+
+
+        },
+        "weighted_features": {
+          "ft_list_3": [
+            "malaysia_palmoil_stock_in_MT",
+            "total_palm_india_portstock",
+            "usa_beginning_stock_soyoil_in_MT",
+            "usa_soyoil_ending_stock_in_MT",
+            "indonesia_nobis_palmoil_stock",
+            "soybean_oil_ending_stocks_current_month_estimate_wasde_MT",
+            "soybean_oil_ending_stocks_previous_month_estimate_wasde_MT",
+            "soybeans_ending_stocks_current_month_estimate_wasde_MT",
+            "soybeans_ending_stocks_previous_month_estimate_wasde_MT"
+          ],
+          "ft_list_2": [
+            "usa_production_soyoil_in_MT",
+            "usa_soyoil_exports_in_MT",
+            "malaysia_palmoil_production_in_MT",
+            "brazil_soybean_oil_production_in_MT",
+            "brazil_soybean_oil_refined_export_in_MT",
+            "export_palm_oil_Indonesia_To_India_in_MT",
+            "export_palm_oil_Malaysia_To_India_in_MT",
+            "mpob_ppo_exports_in_MT",
+            "mpob_palm_oil_exports_in_MT",
+            "indonesia_cpo_domestic_consumption_in_MT",
+            "cpo_export_allpalmoil_indonesia_in_MT",
+            "indonesia_palmoil_production_in_MT",
+            "usa_imports_soyoil_in_MT"
+          ],
+          "ft_list_1": [
+            "2_po_dce_prices_USD_per_MT",
+            "USD_MYR_Price",
+            "crude_oil_wti",
+            "mcx_spot_price",
+            "3_cpo_bmd_prices_USD_per_MT",
+            "1_po_dce_prices_USD_per_MT",
+            "sp500_close_index",
+            "usa_soyoil_methyl_ester_in_MT",
+            "cdsbo_india_portstock",
+            "Argentina_Soyoil_minus_Malaysia_CPO_Spot",
+            "Argentina_Soyoil",
+            "bmd_spot_price",
+            "1_soyoil_dalian_prices_USD_per_MT",
+            "1_no1soybean_dalian_prices_USD_per_MT",
+            "3_soybean_cbot_prices_USD_per_MT",
+            "rmseed_spot_price",
+            "third_month_future_volume_bmd_in_MT",
+            "third_month_future_volume_soyoil_cbot_in_MT",
+            "Crude_Palm_Oil_Import_Duty_Value_Rupee_Per_MT",
+            "Crude_Palmolein_Import_Duty_Value_Rupee_Per_MT",
+            "Crude_Soybean_Oil_Import_Duty_Value_Rupee_Per_MT"
+          ]
+        }
+      }
+    },
+    "tdesk": {
+      "all_spread_daily_prediction": {
+        "y_variable": [
+          {
+            "label": "CPO(BMD)-CPO(BMD)",
+            "value": "CPO(BMD)-CPO(BMD)",
+            "commodity": [
+              "CPO-BMD"
+            ]
+          },
+          {
+            "label": "Soybean(CBOT)-Soybean(CBOT)",
+            "value": "Soybean(CBOT)-Soybean(CBOT)",
+            "commodity": [
+              "Soybean-CBOT"
+            ]
+          },
+          {
+            "label": "Soyoil(CBOT)-Soyoil(CBOT)",
+            "value": "Soyoil(CBOT)-Soyoil(CBOT)",
+            "commodity": [
+              "Soyoil-CBOT"
+            ]
+          },
+          {
+            "label": "Soymeal(CBOT)-Soymeal(CBOT)",
+            "value": "Soymeal(CBOT)-Soymeal(CBOT)",
+            "commodity": [
+              "Soymeal-CBOT"
+            ]
+          },
+          {
+            "label": "Soymeal(CBOT)-Soybean(CBOT)",
+            "value": "Soymeal(CBOT)-Soybean(CBOT)",
+            "commodity": [
+              "Soymeal-CBOT",
+              "Soybean-CBOT"
+            ]
+          },
+          {
+            "label": "Soyoil(CBOT)-Soybean(CBOT)",
+            "value": "Soyoil(CBOT)-Soybean(CBOT)",
+            "commodity": [
+              "Soyoil-CBOT",
+              "Soybean-CBOT"
+            ]
+          },
+          {
+            "label": "Soyoil(CBOT)-Soymeal(CBOT)",
+            "value": "Soyoil(CBOT)-Soymeal(CBOT)",
+            "commodity": [
+              "Soyoil-CBOT",
+              "Soymeal-CBOT"
+            ]
+          },
+          {
+            "label": "CPO(BMD)-Soyoil(CBOT)",
+            "value": "CPO(BMD)-Soyoil(CBOT)",
+            "commodity": [
+              "CPO-BMD",
+              "Soyoil-CBOT"
+            ]
+          }
+        ]
+      },
+      "all_spread_model_explainability": {
+        "spread_type": [
+          "Calender",
+          "NonCalender"
+        ],
+        "sort_criteria": [
+          "None",
+          "Profitable Trades",
+          "Returns"
+        ],
+        "spread_months": [
+          {
+            "label": "Jan",
+            "value": 1
+          },
+          {
+            "label": "Feb",
+            "value": 2
+          },
+          {
+            "label": "Mar",
+            "value": 3
+          },
+          {
+            "label": "Apr",
+            "value": 4
+          },
+          {
+            "label": "May",
+            "value": 5
+          },
+          {
+            "label": "Jun",
+            "value": 6
+          },
+          {
+            "label": "Jul",
+            "value": 7
+          },
+          {
+            "label": "Aug",
+            "value": 8
+          },
+          {
+            "label": "Sep",
+            "value": 9
+          },
+          {
+            "label": "Oct",
+            "value": 10
+          },
+          {
+            "label": "Nov",
+            "value": 11
+          },
+          {
+            "label": "Dec",
+            "value": 12
+          }
+        ],
+        "spread_perc": [
+          {
+            "label": "> 50 %",
+            "value": 50
+          },
+          {
+            "label": "> 60 %",
+            "value": 60
+          },
+          {
+            "label": "> 70 %",
+            "value": 70
+          }
+        ]
+      }
+    }
+  }
+}
