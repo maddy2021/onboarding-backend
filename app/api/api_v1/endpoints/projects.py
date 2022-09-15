@@ -104,22 +104,22 @@ def fetch_project_by_id(
         return {}
     return result
 
-@router.delete('/{project_id}',
-# dependencies=[
-#     Depends(PermissionChecker(module=ModulesEnum.PERMISSION.name,permission=PermissionsEnum.DELETE.name))
-# ]
-)
-def delete_project(
-    *,
-    tool_id: int,
-    db: Session = Depends(deps.get_db)
-):
-    result = crud.projects.remove(db=db, id=tool_id)
+# @router.delete('/{project_id}',
+# # dependencies=[
+# #     Depends(PermissionChecker(module=ModulesEnum.PERMISSION.name,permission=PermissionsEnum.DELETE.name))
+# # ]
+# )
+# def delete_project(
+#     *,
+#     tool_id: int,
+#     db: Session = Depends(deps.get_db)
+# ):
+#     result = crud.projects.remove(db=db, id=tool_id)
 
-    if result is None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
-                            detail="Resource Not Found")
-    return result
+#     if result is None:
+#         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+#                             detail="Resource Not Found")
+#     return result
 
 
 
@@ -163,6 +163,22 @@ def create_project_tools(
     """
     user = crud.projects.assign_tools(db=db, obj_in=project_in, project_id = project_id)
 
+    return user
+
+@router.post("/{project_id}/tools/delete", status_code=201, response_model=Projects,
+                # dependencies=[
+                #     Depends(PermissionChecker(module=ModulesEnum.USER.name,permission=PermissionsEnum.DELETE.name)),
+                #     Depends(PermissionChecker(module=ModulesEnum.ROLE.name,permission=PermissionsEnum.DELETE.name))
+                # ]
+                )
+def delete_assigned_tools(
+    *, project_id: int,project_in: ProjectToolsAssignment, db: Session = Depends(deps.get_db)
+) -> dict:
+    """
+    Delete asiigned role for user.
+    """
+    user = crud.projects.delete_assigned_tools(db=db, obj_in=project_in, project_id= project_id)
+    
     return user
 
 @router.post("/{project_id}/designations/tools", status_code=201, response_model=dict,

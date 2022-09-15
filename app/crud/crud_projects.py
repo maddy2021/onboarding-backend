@@ -26,6 +26,15 @@ class CRUDTools(CRUDBase[Projects, ProjectCreate, ProjectUpdate]):
         db.refresh(project_obj)
         return project_obj
 
+    def delete_assigned_tools(self, db: Session, obj_in: ProjectToolsAssignment, project_id: int):
+        tools_obj = db.query(Tools).filter(Tools.id == obj_in.tool_id).first()
+        project_obj: ProjectSchema = db.query(Projects).filter(Projects.id == project_id).first()
+        project_obj.tools.remove(tools_obj)
+        db.add_all([project_obj])
+        db.commit()
+        db.refresh(project_obj)
+        return project_obj
+
     def assign_desn_tools(self, db: Session, obj_in: List[DesignationToolsSchema] , project_id: int):
         desgn_tools_obj = []
         desn_id = obj_in[0].designation_id
