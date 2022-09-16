@@ -2,7 +2,7 @@ from typing import List
 from app.crud.base import CRUDBase
 
 from app.models.projects import Projects
-from app.schemas.designation_tools import DesignationTools as DesignationToolsSchema
+from app.schemas.designation_tools import DesignationTools as DesignationToolsSchema, DesignationToolsTable
 from app.models.designation_tools import DesignationTools
 from app.schemas.projects import ProjectCreate, ProjectToolsAssignment, ProjectUpdate
 from app.schemas.projects import Projects as ProjectSchema
@@ -68,13 +68,21 @@ class CRUDTools(CRUDBase[Projects, ProjectCreate, ProjectUpdate]):
 
     def get_all_desn_tools(self, db: Session, project_id):
         desgn_tools_obj = []
-        desgn_tools_obj = db.execute(f"Select prj.display_name prjname, d.display_name desn_name, tool.display_name tool_name \
+        designations_tools =[]
+        desgn_tools_obj = db.execute(f"Select d.display_name desn_name, tool.display_name tool_name \
                         from public.designationtools dt \
-                        inner join public.projects prj on dt.project_id=prj.id \
                         inner join public.designations d on dt.designation_id=d.id \
                         inner join public.tools tool on dt.tool_id=tool.id \
                         where dt.project_id={project_id};").mappings().all()
-        return desgn_tools_obj
+        temp_dict = {}
+        for data in desgn_tools_obj:
+            if data.desn_name not in temp_dict:
+                temp_dict[data.desn_name] = [data.tool_name]
+            else:
+                temp_dict[data.desn_name].append(data.tool_name) 
+        for key,value in temp_dict.items():
+            designations_tools.append(DesignationToolsTable(designation_name=key,tools=value))
+        return designations_tools
 
     def get_not_associated_tools(self, db: Session, id: int):
         tools_obj = db.query(Tools).join(Tools, Projects.tools).filter(Projects.id == id).all()

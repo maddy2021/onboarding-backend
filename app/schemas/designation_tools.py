@@ -12,6 +12,11 @@ class DesignationTools(BaseModel):
     designation_id: Optional[int]
     tool_id: Optional[int]
 
+class DesignationToolsTable(BaseModel):
+    designation_name: str
+    tools: List[str]
+
+
 class RolePermissionIn(BaseModel):
     Permission: List[DesignationTools]
 

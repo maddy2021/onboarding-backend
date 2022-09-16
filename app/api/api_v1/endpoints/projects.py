@@ -7,7 +7,7 @@ from app import crud
 from app.api import deps
 from app.core.permission_checker import ModulesEnum, PermissionChecker, PermissionsEnum
 from app.schemas.designation_tools import DesignationTools
-from app.schemas.designation_tools import DesignationToolsBase
+from app.schemas.designation_tools import DesignationToolsBase, DesignationToolsTable
 from app.schemas.projects import ProjectDelete, ProjectTools, ProjectToolsAssignment, Projects, ProjectCreate, ProjectUpdate
 from app.models.user import User
 from app.schemas.tools import ToolsInDBBase
@@ -213,7 +213,7 @@ def get_designations_tools(
 
     return desn_tools
 
-@router.get("/{project_id}/designations/all_tools", status_code=201, response_model=List[dict],
+@router.get("/{project_id}/designations/all_tools", status_code=201, response_model=List[DesignationToolsTable],
                 # dependencies=[
                 #     Depends(PermissionChecker(module=ModulesEnum.USER.name,permission=PermissionsEnum.ADD.name)),
                 #     Depends(PermissionChecker(module=ModulesEnum.ROLE.name,permission=PermissionsEnum.ADD.name))
