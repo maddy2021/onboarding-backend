@@ -5,3 +5,4 @@ from .permission import Permission, PermissionCreate
 # from .subscriber import Subscriber, SubscriberCreate
 from .module import Module, ModuleCreate
 from .role_permission import RolePermissionIn, RolePermissionBase, RolePermission
+from .request_status import RequestStatusCreate, RequestStatus

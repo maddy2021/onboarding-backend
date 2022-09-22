@@ -132,7 +132,7 @@ class CRUDUser(CRUDBase[User, UserCreate, UserUpdate]):
         configuration_user_ids= db.execute("select ur.user_id from public.user_roles as ur JOIN public.roles as r on r.id=ur.role_id where r.name in ('COFIGURATION_MANAGER')").fetchall()
         ids = (",").join([str(data[0]) for data in configuration_user_ids]) 
         # tuple([data[0] for data in configuration_user_ids])
-        configuration_users = db.execute(f"select u.first_name, u.last_name, u.employee_id, u.email, u.phone from public.user as u INNER JOIN public.user_projects as up On up.user_id=u.id where up.project_id={id} and u.id in ({ids});").mappings().all()
+        configuration_users = db.execute(f"select u.id, u.first_name, u.last_name, u.employee_id, u.email, u.phone from public.user as u INNER JOIN public.user_projects as up On up.user_id=u.id where up.project_id={id} and u.id in ({ids});").mappings().all()
         return configuration_users
 
 user = CRUDUser(User)

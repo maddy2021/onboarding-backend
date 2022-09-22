@@ -62,6 +62,7 @@ class ConfigUsers(BaseModel):
     employee_id: int
     email: str
     phone: str
+    id: int
 
 
 class UserInDBBase(UserBase):
@@ -118,6 +119,6 @@ class AccessRequest(BaseModel):
     employee_id: int
     email: str
     base_location: str
-    projects: List[str]
+    project_id: int
     configuration_user: List[str]
     project_tools: List[str]

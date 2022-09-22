@@ -11,3 +11,4 @@ from .crud_tools import tools
 from .crud_projects import projects
 from .crud_kt_links import kt_links
 from .crud_designations import designations
+from .crud_req_status import req_status

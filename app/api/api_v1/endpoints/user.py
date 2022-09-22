@@ -9,6 +9,9 @@ from app.schemas.projects import ProjectInDBBase
 from app.schemas.roles import RoleInDBBase
 from app.schemas.user import AccessRequest, ConfigUsers, UserBase, UserCreate, User, UserDelete, UserOnly, UserProject, UserProjectAssignment, UserRole, UserRoleAssignment, UserSearchResults, UserUpdate
 from app.util.user_util import get_current_user
+from app.schemas.projects import  Projects as ProjectSchema
+from app.schemas.request_status import RequestStatusCreate
+from app.schemas.kt_links import KtLinks
 # logger = logging.getLogger(__name__)  # the __name__ resolve to "uicheckapp.services"
 #                                       # This will load the uicheckapp logger
 
@@ -415,15 +418,26 @@ def create_user(
     Create a new user in the database.
     """
     current_user: User = get_current_user(request)
-    # created_by = current_user.id 
-    # user = crud.user.create(db=db, obj_in=user_in, created_by=created_by)
+    project_deatils = ProjectSchema(**(crud.projects.get(db=db,id=req_in.project_id).__dict__))
+    kt_links = [KtLinks.from_orm(obj) for obj in crud.kt_links.get_kt_docs_by_prj_id(db=db,prj_id=req_in.project_id)]
+
+    created_by = current_user.id 
+    data_in = RequestStatusCreate(project_id=req_in.project_id,
+    # user_id = req_in.id,
+    project_name = project_deatils.display_name,
+    employee_email = req_in.email,
+    employee_first_name = req_in.first_name,
+    employee_id = req_in.employee_id,
+    manager_name = current_user.employee_id,
+    config_managers = req_in.configuration_user,
+    tools = req_in.project_tools,
+    req_status= "Request Raised")
+    user = crud.req_status.create(db=db, obj_in=data_in, created_by=created_by)
     print(req_in)
     kt_msg = "<ul>"
-    for prj in req_in.projects:
-        kt_obj = kt_data[prj]["kt_data"]
-        for kt_dict in kt_obj:
-            kt_msg = kt_msg + f"<li><a href={kt_dict['url']}>{kt_dict['name']}</a></li><br>"
-        kt_msg=kt_msg+"</ul>"
+    for kt_dict in kt_links:
+        kt_msg = kt_msg + f"<li><a href={kt_dict.kt_url}>{kt_dict.display_name}</a></li><br>"
+    kt_msg=kt_msg+"</ul>"
     outlook = win32.Dispatch('outlook.application',pythoncom.CoInitialize())
     mail = outlook.CreateItem(0)
     mail.Subject = 'Onboarding POC Test Mail - Approval Request For Project Tools'
@@ -433,7 +447,7 @@ def create_user(
     Hello,<br><br> \
     This is onboarding poc test mail. <br>\
     Employee_id: {req_in.employee_id} <br> \
-    {req_in.first_name} {req_in.last_name} need access for the {(', ').join(req_in.projects)} Project tools. Please provide access for below.<br><br> \
+    {req_in.first_name} {req_in.last_name} need access for the {project_deatils.display_name} Project tools. Please provide access for below.<br><br> \
     {('<br/>').join(req_in.project_tools)} \
     <br><br> \
     Regards,<br> \
@@ -457,3 +471,5 @@ def create_user(
     "
     mail.Send()
     return {}
+
+
