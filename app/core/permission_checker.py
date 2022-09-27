@@ -14,31 +14,23 @@ from sqlalchemy.orm import Session
 class ModulesEnum(Enum):
     ADMIN = 1
     USER = 2
-    SUBSCRIBER = 3
-    COMMODITY = 4
-    ROLE = 5
-    ACTIVE_COMMODITY = 6
-    LOOKAHEAD = 7
+    PROJECTS = 3
+    TOOLS = 4
+    DESIGNATIONS = 5
+    STATUS = 6
+    ROLE = 7
     PERMISSION = 8
-    PDESK = 9
-    BACKTEST = 10
-    COMPLETE_HISTORY_BACKTEST_METRIC = 11,
-    FEATURE_IMPORTANCE = 12,
-    DAILY_PREDICTION = 13,
-    HISTORICAL_VOLATILITY = 14,
-    BASIS_RISK = 15,
-    FEATURE_FOR_INSTRUMENTS = 16,
-    PUBLIC_POSTING_MONTH_IN = 17,
-    PUBLIC_POSTING_MONTH_FOR = 18,
-    WHAT_IF = 19
-    Spread = 20
-
+    
 class PermissionsEnum(Enum):
     VIEW = 1
     ADD = 2
     EDIT = 3
     DELETE = 4
-    EXPORT = 5
+    ALLOCATE = 5
+    DEALLOCATE = 6
+    REQUEST = 7
+    REVOKE = 8 
+    # EXPORT = 5
 
 
 class PermissionChecker:
